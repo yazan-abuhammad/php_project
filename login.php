@@ -16,10 +16,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($user['Password'] == $loginPassword) {
         // Valid login credentials
-        $_SESSION['user_id'] = $user['id'];
-        header("Location: welcom.php");
+        if ($user['Email_Address'] === 'yazan97@gmail.com') {
+            $_SESSION['user_id'] = $user['id'];
+            header("Location: admin.php");
+        } else {
+            $_SESSION['user_id'] = $user['id'];
+            header("Location: welcom.php");
+        }
     } else {
-
         echo "Invalid email or password";
     }
 }

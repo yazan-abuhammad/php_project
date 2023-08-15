@@ -80,7 +80,7 @@ if (!$user) {
         <p>Email: <?php echo htmlspecialchars($user['Email_Address']); ?></p>
         <p>Mobile: <?php echo htmlspecialchars($user['Phon_number']); ?></p>
 
-        <form action="logout.php" method="post">
+        <form action="index.html" method="post">
             <input type="submit" value="Logout">
         </form>
     </div>
