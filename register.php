@@ -1,6 +1,6 @@
 <?php
 
-include "conaction.php";
+include "connection.php";
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -17,6 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query = "INSERT INTO users(fristname , middlename , last_name , family_name ,Phon_number, Date_of_Birth , Email_Address , Password) 
     VALUES ('$firstName' , '$secondName' , '$thirdName' , '$familyName' , '$Phon_number','$DateofBirth' ,'$EmailAddress' , '$password' ) ";
     $connection->exec($query);
-    echo 'yazan';
+
     header("Location: login_and_register.html");
 }

@@ -1,14 +1,25 @@
-<?php include "connection.php" ;
+<?php
+
+session_start();
+
+include "connection.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['email']) && isset($_POST['password'])) {
-        $user_email = $_POST['email'];
-        $user_email = $_POST['password'];
+    $loginEmail = htmlspecialchars($_POST['loginEmail']);
+    $loginPassword = htmlspecialchars($_POST['loginPassword']);
+
+    // Check if the provided email and password match a record in the database
+    $query = "SELECT * FROM users WHERE Email_Address = '$loginEmail'";
+    $stmt = $connection->prepare($query);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($user && $user['Password'] === $loginPassword) {
+        // Valid login credentials
+        $_SESSION['user_id'] = $user['id'];
+        header("Location: ewde.html");
+    } else {
+
+        echo "Invalid email or password";
     }
-
-
-    $query = "SELECT * FROM users";
-    $retrieve = $connection->query($query);
-    $dataBase = $retrieve->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($dataBase);
 }
