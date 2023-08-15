@@ -14,10 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && $user['Password'] === $loginPassword) {
+    if ($user['Password'] == $loginPassword) {
         // Valid login credentials
         $_SESSION['user_id'] = $user['id'];
-        header("Location: ewde.html");
+        header("Location: welcom.php");
     } else {
 
         echo "Invalid email or password";
