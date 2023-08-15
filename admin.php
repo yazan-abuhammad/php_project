@@ -31,11 +31,23 @@
         tr:hover {
             background-color: #e2e2e2;
         }
+
+        .logout-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
     </style>
 </head>
 
 <body>
-    <h1>Database Table Viewer</h1>
+    <h1>Admin user </h1>
+    <a class="logout-btn" href="login_and_register.html">Logout</a>
+
     <table>
         <tr>
             <th>First Name</th>

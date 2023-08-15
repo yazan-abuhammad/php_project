@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Location: admin.php");
         } else {
             $_SESSION['user_id'] = $user['id'];
-            header("Location: welcom.php");
+            header("Location: welcome.php");
         }
     } else {
         echo "Invalid email or password";
